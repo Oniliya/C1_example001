@@ -1,4 +1,51 @@
-﻿static void InitQuaterByUser(ref int x)
+﻿// static int InitQuaterByUser()
+// {
+//     try
+//     {
+//         Console.Write("Введите Номер координатной четверти: ");
+//         int x=int.Parse(Console.ReadLine() ?? "");
+//         return x;
+//     }
+//     catch (Exception exc)
+//     {
+//         Console.WriteLine($"Ошибка ввода данных! {exc.Message}");
+//         return 0;
+//     }
+// }
+
+// static void PrintQuarterByCoords(int x)
+// {
+//     if(x==1)
+//         Console.WriteLine("x>0 and y>0");
+//     else if(x ==2)
+//         Console.WriteLine("x<0 and y>0");
+//     else if(x ==3)
+//         Console.WriteLine("x<0 and y<0");
+//     else if(x ==4)
+//         Console.WriteLine("x>0 and y<0");
+//     else
+//         Console.WriteLine("Такой четверти не существует");
+// }
+
+// int x = InitQuaterByUser(); 
+// PrintQuarterByCoords(x); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// int X = 0;
+// InitQuaterByUser(ref X); 
+// PrintQuarterByCoords(X); 
+static void InitQuaterByUser(ref int x)
 {
     try
     {

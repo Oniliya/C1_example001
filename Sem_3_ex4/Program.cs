@@ -16,8 +16,9 @@ int N=0;
 Init_Digit(ref N);
 int index=1;
 Console.Write($"{N}->");
-while (index<=N)
+while (index<N)
 {
     Console.Write($"{index*index}, ");
     index++;
 }
+Console.Write($"{index*index}. ");

@@ -15,8 +15,8 @@
 }
 
 int x1=0, y1=0, x2=0, y2=0;
+
 Dots_Coord(ref x1, ref y1);
 Dots_Coord(ref x2, ref y2);
 
-double res=Math.Sqrt(Math.Pow((x1-x2),2)+Math.Pow((y1-y2),2));
-Console.WriteLine($"{res}, ");
+Console.WriteLine($"{Math.Sqrt(Math.Pow((x1-x2),2)+Math.Pow((y1-y2),2))}");
