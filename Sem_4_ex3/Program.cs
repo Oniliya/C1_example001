@@ -14,17 +14,17 @@
 
 int Calc(int x)
 {
-    int count=0;
-    while (x>0)
+    int mult=1;
+    for (int i=1;i<=x;i++)
     {
-        x=x/10;
-        count++;
+        mult=mult*i;
     }
-    return count;
-    }
+    return mult;
+}
     
 
 int n=Init_Digit();
 Console.Write($"{n}->");
+
 int c=Calc(n);
 Console.WriteLine(c);
