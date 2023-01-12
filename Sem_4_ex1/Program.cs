@@ -1,16 +1,15 @@
-﻿static int Init_Digit()
-{
-    while (true)
+﻿int GetNumberFromUser(string message, string errorMessage)
+{ 
+    while(true)
     {
-        Console.Write("Введите число: ");
-        if (int.TryParse(Console.ReadLine(), out int x))
-        {
-            return x;
-            break;
-        }
-        Console.WriteLine("Ошибка ввода!");
+        Console.Write(message);
+        bool isCorrect = int.TryParse(Console.ReadLine(), out int userNumber);
+        if(isCorrect)
+        return userNumber;
+        Console.WriteLine(errorMessage);
     }
 }
+
 
 int Calc(int x)
 {
@@ -21,10 +20,23 @@ int Calc(int x)
         count++;
     }
     return count;
-    }
-    
+}
 
-int n=Init_Digit();
+int Calc2(int x)
+{
+    int mult=1;
+    for (int i=1;i<=x;i++)
+    {
+        mult=mult*i;
+    }
+    return mult;
+}    
+
+int n = GetNumberFromUser("Введите целое число A: ","Ошибка ввода!");
 Console.Write($"{n}->");
+
 int c=Calc(n);
 Console.WriteLine(c);
+
+int c2=Calc2(n);
+Console.WriteLine(c2);
