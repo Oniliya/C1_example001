@@ -12,21 +12,26 @@ int[] GetArray(int size, int minValue, int maxValue)
     return res;
 }
 
-Console.Clear();
-int[] array = GetArray(4, -10, 10);
-Console.WriteLine(String.Join(" ", array));
 
-int[] ChangeArray(int[] arr)
+void ChangeArray(int[] arr)
 {
     for (int i=0; i<arr.Length; i++)
     {
         arr[i]=-arr[i];
     }
-    return arr;
 }
 
-int[] array2 = ChangeArray(array);
+Console.Clear();
+int[] array = GetArray(4, -10, 10);
 Console.WriteLine(String.Join(" ", array));
+
+ChangeArray(array);
+Console.WriteLine(String.Join(" ", array));
+
+// array[0]=555;
+// Console.WriteLine(String.Join(" ", array));
+// Console.WriteLine(String.Join(" ", array2));
+
 
 //
 //Задайте массив. Напишите программу, которая определяет, присутствует ли заданное число в массиве.
