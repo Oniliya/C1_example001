@@ -1,4 +1,7 @@
-﻿int[] GetArray(int size, int minValue, int maxValue)
+﻿//Задайте массив заполненный случайными положительными трёхзначными числами. 
+//Напишите программу, которая покажет количество чётных чисел в массиве.
+//
+int[] GetArray(int size, int minValue, int maxValue)
 {
     int[] res = new int[size];
      for (int i = 0; i < size; i++)
@@ -19,7 +22,7 @@ int Check(int[] arr)
 }
 
 Console.Clear();
-int[] array = GetArray(10, 100, 1000);
+int[] array = GetArray(10, 100, 999);
 Console.WriteLine(String.Join(" ", array));
 
 Console.Write("Количество четных элементов -> ");

@@ -21,6 +21,7 @@ int Kol_Array(int[] arr)
     }
     return kol;
 }
+
 Console.Clear();
 int[] array = GetArray(123, -100, 150);
 Console.WriteLine(String.Join(" ", array));
