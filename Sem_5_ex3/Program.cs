@@ -24,6 +24,7 @@ int Kol_Array(int[] arr)
 Console.Clear();
 int[] array = GetArray(123, -100, 100);
 Console.WriteLine(String.Join(" ", array));
+Console.Write("Количество элементов из отрезка [10,99] ->");
 Console.WriteLine(Kol_Array(array));
 
 
@@ -33,12 +34,19 @@ Console.WriteLine(Kol_Array(array));
 // Результат запишите в новом массиве.
 //
 
+int[] Create_New_Array(int size, int[] arr)
+{
+    int[] res = new int[size];
+    for (int i = 0; i < size; i++)
+    {
+        res[i] = arr[i]*arr[arr.Length-i-1];
+    }
+    return res;
+}
 
-// int[] array3 = GetArray(5, -10, 10);
-// Console.WriteLine(String.Join(" ", array3));
+Console.WriteLine("-------------");
 
-// int n=GetNumberFromUser($"Введите число ", "Ошибка ввода!");
+int[] array2= Create_New_Array(array.Length/2 , array);
+Console.WriteLine(String.Join(" ", array2));
 
-// if (Check(n, array3)) Console.WriteLine("да");
-// else Console.WriteLine("нет");
 
