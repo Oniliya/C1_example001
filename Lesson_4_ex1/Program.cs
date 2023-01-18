@@ -123,20 +123,32 @@
 // }
 
 
-double F_posl(int n)
-{
-    if ((n==1)) return 1;
-    else return F_posl(n-1) - G_posl(n-1);
-}
-double G_posl(int n)
-{
-    if ((n==1)) return 1;
-    else return F_posl(n-1) + G_posl(n-1);
-}
+// double F_posl(int n)
+// {
+//     if ((n==1)) return 1;
+//     else return F_posl(n-1) - G_posl(n-1);
+// }
+// double G_posl(int n)
+// {
+//     if ((n==1)) return 1;
+//     else return F_posl(n-1) + G_posl(n-1);
+// }
 
-Console.WriteLine($"f({5})! = {F_posl(5)/G_posl(5)}");
+// Console.WriteLine($"f({5})! = {F_posl(5)/G_posl(5)}");
 
 // for(int i=1; i<15; i++)
 // {
 //     Console.WriteLine($"f({i})! = {F_posl(i)}");
 // }
+
+
+double F_posl(int n)
+{
+    if ((n==0)) return 0;
+    else if ((n%3==2)&&(n>0)) return F_posl(n-1)+1;
+    else return F_posl((n-n%3)/3);
+}
+for(int i=1; i<245; i++)
+{
+    Console.WriteLine($"f({i})! = {F_posl(i)}");
+}
