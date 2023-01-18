@@ -123,3 +123,20 @@
 // }
 
 
+double F_posl(int n)
+{
+    if ((n==1)) return 1;
+    else return F_posl(n-1) - G_posl(n-1);
+}
+double G_posl(int n)
+{
+    if ((n==1)) return 1;
+    else return F_posl(n-1) + G_posl(n-1);
+}
+
+Console.WriteLine($"f({5})! = {F_posl(5)/G_posl(5)}");
+
+// for(int i=1; i<15; i++)
+// {
+//     Console.WriteLine($"f({i})! = {F_posl(i)}");
+// }
