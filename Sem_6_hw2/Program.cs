@@ -12,15 +12,14 @@
 
 bool CheckCoord(float x1, float x2, float y1, float y2)
 {
-    if (x1==x2) 
-    {
-        Console.WriteLine($"Прямые парралельны");
-        return false;
-    }
-
     if ((x1==x2)&&(y1==y2))
     {
         Console.WriteLine($"Прямые совпадают");
+        return false;
+    }
+    if (x1==x2) 
+    {
+        Console.WriteLine($"Прямые парралельны");
         return false;
     }
     return true;
