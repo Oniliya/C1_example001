@@ -16,14 +16,12 @@ int[,] pic_cube=new int[,]
     {1,1 },
     {1,1 },
 };
-
 int[,] pic_z_right=new int[,]
 {
     {1,1,0 },
     {0,1,1 },
     {0,0,0 }
 };
-
 int[,] pic_z_left=new int[,]
 {
     {0,1,1 },
