@@ -108,16 +108,6 @@ for (int i=0; i<numbers.Length; i++)
 
 
 
-
-
-
-
-
-
-
-
-
-
 // int[,] GetArray(int m, int n, int minValue, int maxValue)
 // {
 //     int[,] result = new int[m, n];
