@@ -35,55 +35,55 @@ void PrintArray(int[,] inArray)
     }
 }
 
-void FillStringFromArray(int[,] inArray, string[] res)
+int[] GetNewArray(int[,] fromArray)
 {
+    int[] result = new int[fromArray.GetLength(0)*fromArray.GetLength(1)];
     int k=0;
-    for (int i = 0; i < inArray.GetLength(0); i++)
+    for(int i=0; i<fromArray.GetLength(0); i++)
     {
-        for (int j = 0; j < inArray.GetLength(1); j++)
+        for(int j=0; j<fromArray.GetLength(1); j++)
         {
-
-            res[k]=inArray[i,j].ToString();
+            result[k]=fromArray[i,j];
             k++;
-
         }
     }
+    return result;    
 }
 
-string[] CreateStrArray(int col)
+void PrintNewArray (int[] newArray)
 {
-    string[] result = new string[col];
-    for (int i = 0; i < col; i++)
+    for(int i=0; i<newArray.Length; i++)
     {
-        result[i]=string.Empty;
+        Console.Write($"{newArray[i]} ");
     }
-    return result;
 }
 
-void DelTwinsFromString(string[] str)
+void OderArray(int[] inArray)
 {
-    for(int i=0; i<str.Length; i++)
+    for(int i=0; i<inArray.Length; i++)
     {
-        for(int j=i+1; j<str.Length; j++)
+        for(int j=i+1; j<inArray.Length; j++)
         {
-            if (str[i]==str[j]) str[j]=string.Empty;
+            if (inArray[j]<inArray[i]) 
+            {
+                int ch=0;
+                ch=inArray[i];
+                inArray[i]=inArray[j];
+                inArray[j]=ch;
+            }
         }
     }
 }
 
-int Check(int[,] inArray, int exampl)
+int Check(int[] fromArr, int x)
 {
     int kol=0;
-    for(int i=0; i<inArray.GetLength(0); i++)
+    for(int i=0; i<fromArr.Length; i++)
     {
-        for(int j=0; j<inArray.GetLength(1); j++)
-        {
-            if (inArray[i,j]==exampl) kol++;
-        }
+        if (fromArr[i]==x) kol++;
     }
     return kol;
 }
-
 
 Console.Clear();
 int rows=GetNumberFromUser($"Введите количество строк массива: ","Ошибка");
@@ -92,16 +92,130 @@ int[,] array = GetArray(rows, columns, 0, 10);
 PrintArray(array);
 Console.WriteLine();
 
+int[] newArr = GetNewArray(array);
+OderArray(newArr);
 
-string[] numbers = CreateStrArray(rows*columns);
-FillStringFromArray(array, numbers);
-DelTwinsFromString(numbers);
-
-Console.WriteLine();
-for (int i=0; i<numbers.Length; i++)
+int i=0;
+while (i<newArr.Length) 
 {
-   if (numbers[i] != "" ) Console.WriteLine($"{int.Parse(numbers[i])} встречается {Check(array, int.Parse(numbers[i]))} раз"); 
-}
+    Console.WriteLine($"число {newArr[i]} встречается {Check(newArr, newArr[i])}");
+    i+=Check(newArr, newArr[i]);
+};
+
+
+
+
+
+
+
+
+
+
+
+// int GetNumberFromUser(string message, string errorMessage)
+// {
+//     while (true)
+//     {
+//         Console.Write(message);
+//         bool isCorrect = int.TryParse(Console.ReadLine(), out int userNumber);
+//         if (isCorrect)
+//             return userNumber;
+//         Console.WriteLine(errorMessage);
+//     }
+// }
+
+// int[,] GetArray(int m, int n, int minValue, int maxValue)
+// {
+//     int[,] result = new int[m, n];
+//     for (int i = 0; i < m; i++)
+//     {
+//         for (int j = 0; j < n; j++)
+//         {
+//             result[i, j] = new Random().Next(minValue, maxValue + 1);
+//         }
+//     }
+//     return result;
+// }
+
+// void PrintArray(int[,] inArray)
+// {
+//     for (int i = 0; i < inArray.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < inArray.GetLength(1); j++)
+//         {
+//             Console.Write($"{inArray[i, j]} ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// void FillStringFromArray(int[,] inArray, string[] res)
+// {
+//     int k=0;
+//     for (int i = 0; i < inArray.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < inArray.GetLength(1); j++)
+//         {
+
+//             res[k]=inArray[i,j].ToString();
+//             k++;
+
+//         }
+//     }
+// }
+
+// string[] CreateStrArray(int col)
+// {
+//     string[] result = new string[col];
+//     for (int i = 0; i < col; i++)
+//     {
+//         result[i]=string.Empty;
+//     }
+//     return result;
+// }
+
+// void DelTwinsFromString(string[] str)
+// {
+//     for(int i=0; i<str.Length; i++)
+//     {
+//         for(int j=i+1; j<str.Length; j++)
+//         {
+//             if (str[i]==str[j]) str[j]=string.Empty;
+//         }
+//     }
+// }
+
+// int Check(int[,] inArray, int exampl)
+// {
+//     int kol=0;
+//     for(int i=0; i<inArray.GetLength(0); i++)
+//     {
+//         for(int j=0; j<inArray.GetLength(1); j++)
+//         {
+//             if (inArray[i,j]==exampl) kol++;
+//         }
+//     }
+//     return kol;
+// }
+
+
+// Console.Clear();
+// int rows=GetNumberFromUser($"Введите количество строк массива: ","Ошибка");
+// int columns=GetNumberFromUser($"Введите количество столбцов массива: ","Ошибка");
+// int[,] array = GetArray(rows, columns, 0, 10);
+// PrintArray(array);
+// Console.WriteLine();
+
+
+// string[] numbers = CreateStrArray(rows*columns);
+// FillStringFromArray(array, numbers);
+// DelTwinsFromString(numbers);
+
+// Console.WriteLine();
+// for (int i=0; i<numbers.Length; i++)
+// {
+//    if (numbers[i] != "" ) Console.WriteLine($"{int.Parse(numbers[i])} встречается {Check(array, int.Parse(numbers[i]))} раз"); 
+// }
 
 
 
