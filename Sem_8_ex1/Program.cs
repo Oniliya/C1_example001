@@ -50,14 +50,6 @@ int[] GetNewArray(int[,] fromArray)
     return result;    
 }
 
-void PrintNewArray (int[] newArray)
-{
-    for(int i=0; i<newArray.Length; i++)
-    {
-        Console.Write($"{newArray[i]} ");
-    }
-}
-
 void OderArray(int[] inArray)
 {
     for(int i=0; i<inArray.Length; i++)
@@ -85,22 +77,27 @@ int Check(int[] fromArr, int x)
     return kol;
 }
 
+void CheckArr(int[] fromArr)
+{
+    int i=0;
+    while (i<fromArr.Length) 
+    {
+        Console.WriteLine($"число {fromArr[i]} встречается {Check(fromArr, fromArr[i])}");
+        i+=Check(fromArr, fromArr[i]);
+    };
+    
+}
+
 Console.Clear();
 int rows=GetNumberFromUser($"Введите количество строк массива: ","Ошибка");
 int columns=GetNumberFromUser($"Введите количество столбцов массива: ","Ошибка");
 int[,] array = GetArray(rows, columns, 0, 10);
 PrintArray(array);
 Console.WriteLine();
-
 int[] newArr = GetNewArray(array);
 OderArray(newArr);
+CheckArr(newArr);
 
-int i=0;
-while (i<newArr.Length) 
-{
-    Console.WriteLine($"число {newArr[i]} встречается {Check(newArr, newArr[i])}");
-    i+=Check(newArr, newArr[i]);
-};
 
 
 
