@@ -1,4 +1,57 @@
-﻿// //----------------задача----------------задача----------------задача----------------задача----------------задача----------------задача
+﻿//----------------задача----------------задача----------------задача----------------задача----------------задача----------------задача
+//количество итераций и время последовательность фибонначи
+decimal fRec=0;
+decimal fIte=0;
+
+decimal FibonnacciRecursion(int n)
+{
+    fRec++;
+    return n ==0 || n==1 ? 1 :FibonnacciRecursion(n-1)+FibonnacciRecursion(n-2);
+}
+
+decimal FibonnacciIteration(int n)
+{
+    fIte++;
+    decimal result =1;
+    decimal f0=1;
+    decimal f1=1;
+    for (int i=2; i <= n ; i++)
+    {
+        result= f0+f1;
+        f0=f1;
+        f1= result;
+        fIte++;
+    }
+    return result;
+}
+
+//# 1 2 3 4 5 6
+//V 1 1 2 3 5 8
+
+Console.ReadLine();
+DateTime dt = DateTime.Now;
+for (int n=10; n<40; n++)
+{
+    Console.WriteLine($"FibonnacciIteration({n}) = {FibonnacciIteration(n)} fIte = {fIte.ToString("### ### ###"), -15}");
+    fIte=0;
+}
+Console.WriteLine((DateTime.Now-dt).TotalMilliseconds);
+
+Console.WriteLine();
+Console.ReadLine();
+dt = DateTime.Now;
+for (int n=10; n<40; n++)
+{
+    Console.WriteLine($"FibonnacciRecursion({n}) = {FibonnacciRecursion(n)} fRec = {fRec.ToString("### ### ###"), -15}");
+    fRec=0;
+}
+Console.WriteLine((DateTime.Now-dt).TotalMilliseconds);
+
+
+
+
+
+// //----------------задача----------------задача----------------задача----------------задача----------------задача----------------задача
 // //обход дерева
 // string emp=String.Empty;
 // string[] tree = {emp, "/", "*", "10", "-", "+", emp, emp, "4", "2", "1", "3"} ;
