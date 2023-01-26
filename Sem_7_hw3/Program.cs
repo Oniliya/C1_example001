@@ -1,4 +1,5 @@
-﻿int GetNumberFromUser(string message, string errorMessage)
+﻿///
+int GetNumberFromUser(string message, string errorMessage)
 {
     while (true)
     {
