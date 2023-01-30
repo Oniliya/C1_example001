@@ -12,41 +12,42 @@
 
 void F_posl(int n1)
 {
-    if (n1==0) return;
-    else 
+    if (n1 == 0) return;
+    else
     {
-        
-        F_posl(n1-1);
-        Console.Write($"{n1}, ");    
+
+        F_posl(n1 - 1);
+        Console.Write($"{n1}, ");
     }
 }
 
 void F_posl2(int n1, int n2)
 {
-    if (n2==n1-1) return;
-    else 
+    if (n2 == n1 - 1) return;
+    else
     {
-        F_posl2(n1,n2-1);
-        Console.Write($"{n2}, ");    
+        F_posl2(n1, n2 - 1);
+        Console.Write($"{n2}, ");
     }
 }
 
 int RecurrSum(int n3)
 {
-    if (n3==0) return 0;
-    else 
+    if (n3 == 0) return 0;
+    else
     {
-        return n3%10+RecurrSum(n3/10);
+        return n3 % 10 + RecurrSum(n3 / 10);
     }
 
 }
 
 int MultReccur(int x, int y)
 {
-    if (y==1) return x;
+    if (y == 0) return 1;
+    if (y == 1) return x;
     else
     {
-        return x*MultReccur(x,y-1);
+        return x * MultReccur(x, y - 1);
     }
 }
 
@@ -55,7 +56,7 @@ int MultReccur(int x, int y)
 // N = 5 -> "1, 2, 3, 4, 5"
 // N = 6 -> "1, 2, 3, 4, 5, 6"
 //
-int num = GetNumberFromUser("Введите число -> ","Ошибка ввода");
+int num = GetNumberFromUser("Введите число -> ", "Ошибка ввода");
 F_posl(num);
 Console.WriteLine();
 
@@ -64,8 +65,8 @@ Console.WriteLine();
 // M = 1; N = 5 -> "1, 2, 3, 4, 5"
 // M = 4; N = 8 -> "4, 6, 7, 8"
 //
-int num2 = GetNumberFromUser("Введите второе значение -> ","Ошибка ввода");
-if (num2>num) F_posl2(num, num2);
+int num2 = GetNumberFromUser("Введите второе значение -> ", "Ошибка ввода");
+if (num2 > num) F_posl2(num, num2);
 else F_posl2(num2, num);
 Console.WriteLine();
 
@@ -74,7 +75,7 @@ Console.WriteLine();
 // 453 -> 12
 // 45 -> 9
 //
-int num3 = GetNumberFromUser("Введите число -> ","Ошибка ввода");
+int num3 = GetNumberFromUser("Введите число -> ", "Ошибка ввода");
 Console.WriteLine($"{RecurrSum(num3)}");
 
 //
@@ -82,6 +83,6 @@ Console.WriteLine($"{RecurrSum(num3)}");
 // A = 3; B = 5 -> 243 (3⁵)
 // A = 2; B = 3 -> 8
 //
-int num4 = GetNumberFromUser("Введите число -> ","Ошибка ввода");
-int num5 = GetNumberFromUser("Введите степень -> ","Ошибка ввода");
+int num4 = GetNumberFromUser("Введите число -> ", "Ошибка ввода");
+int num5 = GetNumberFromUser("Введите степень -> ", "Ошибка ввода");
 Console.WriteLine($"{MultReccur(num4, num5)}");
