@@ -43,9 +43,19 @@ int RecurrSum(int n3)
 
 }
 
+int MultReccur(int x, int y)
+{
+    if (y==1) return x;
+    else
+    {
+        return x*MultReccur(x,y-1);
+    }
+}
+
 int num = GetNumberFromUser("Введите число -> ","Ошибка ввода");
 F_posl(num);
 Console.WriteLine();
+
 int num2 = GetNumberFromUser("Введите второе значение -> ","Ошибка ввода");
 if (num2>num) F_posl2(num, num2);
 else F_posl2(num2, num);
@@ -54,3 +64,6 @@ Console.WriteLine();
 int num3 = GetNumberFromUser("Введите число -> ","Ошибка ввода");
 Console.WriteLine($"{RecurrSum(num3)}");
 
+int num4 = GetNumberFromUser("Введите число -> ","Ошибка ввода");
+int num5 = GetNumberFromUser("Введите степень -> ","Ошибка ввода");
+Console.WriteLine($"{MultReccur(num4, num5)}");
