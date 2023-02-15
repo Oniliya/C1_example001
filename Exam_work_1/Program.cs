@@ -19,4 +19,45 @@ int GetNumberFromUser(string message, string errorMessage)
     }
 }
 
+string[] CreateArray(int m)
+{
+    string[] result = new string[m];
+    for(int i=0; i<result.GetLength(0); i++)
+    {
+        Console.Write($"Введите {i} строку массива -> ");
+        result[i] = Console.ReadLine();
+    }
+    return result;
+}
+
+void PrintArray(string[] arr)
+{
+    Console.Write("[");
+    for (int i=0; i<arr.GetLength(0)-1; i++)
+    {
+        Console.Write($"\"{arr[i]}\",");
+    }
+    Console.Write($"{arr[arr.GetLength(0)-1]}\"]");
+}
+
+int check(string[] arr)
+{
+    int count=0;
+    for (int i=0; i<arr.GetLength(0); i++)
+    {
+        if (arr[i].Length<4)
+            count++;
+    }
+    return count;
+}
+
+Console.Clear();
 int num = GetNumberFromUser("Введите количество строк в массиве -> ", "Ошибка ввода");
+string[] array = CreateArray(num);
+PrintArray(array);
+string[] array2 = new string[check(array)];
+
+PrintArray(array2);
+
+
+
