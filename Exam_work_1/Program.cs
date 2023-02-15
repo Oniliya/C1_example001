@@ -35,9 +35,12 @@ void PrintArray(string[] arr)
     Console.Write("[");
     for (int i=0; i<arr.GetLength(0)-1; i++)
     {
-        Console.Write($"\"{arr[i]}\",");
+        if (arr[i]=="") Console.Write("\"\",");
+        else Console.Write($"\"{arr[i]}\",");
     }
-    Console.Write($"{arr[arr.GetLength(0)-1]}\"]");
+    if (arr[arr.GetLength(0)-1]=="") Console.Write("\"\"]");
+    else Console.Write($"{arr[arr.GetLength(0)-1]}\"");
+    Console.Write("]");
 }
 
 int check(string[] arr)
@@ -51,12 +54,27 @@ int check(string[] arr)
     return count;
 }
 
+string[] CreateNewArray(string[] arr, int num)
+{
+    string[] result = new string[num];
+    int k=0;
+    for (int i=0; i<arr.GetLength(0); i++)
+    {
+        if (arr[i].Length<4)
+        {
+            result[k]=arr[i];
+            k++;
+        }
+    }
+    return result;
+}
+
 Console.Clear();
 int num = GetNumberFromUser("Введите количество строк в массиве -> ", "Ошибка ввода");
 string[] array = CreateArray(num);
 PrintArray(array);
-string[] array2 = new string[check(array)];
-
+string[] array2 = CreateNewArray(array, check(array));
+Console.Write(" -> ");
 PrintArray(array2);
 
 
